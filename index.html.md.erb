@@ -1,34 +1,43 @@
 ---
-title: EnterpriseDB Postgres Service Broker for Pivotal Cloud Foundry&reg;
+title: EDB Postgres Service Broker for Pivotal Cloud Foundry&reg;
 owner: Partner Services
 ---
 
-This documentation describes the EnterpriseDB (EDB) Postgres Service Broker for Pivotal Cloud Foundry&reg; (PCF).
+This documentation describes the EnterpriseDB (EDB) Postgres Service Broker tile for Pivotal Cloud Foundry&reg; (PCF). 
 
-EnterpriseDB Postgres Service Broker
+The EDB Postgres Service Broker tile registers a service broker on PCF and exposes a service plan on the Marketplace. Developers can provision a PostgreSQL database by creating instances of the service plan using Apps Manager or the cf Command Line Interface (CLI).
 
-A Service Broker allows Cloud Foundry applications to bind to services and consume the services easily from App Manager UI or command line. The EnterpriseDB Postgres Service Broker will enable you to use one or more EnterpriseDB Postgres accounts and is deployed as a Java Application on Cloud Foundry. The Broker exposes the EnterpriseDB Postgres service on the Cloud Foundry Marketplace and allows users to directly create a service instance and bind it to their applications either from the Pivotal Apps Manager Console or from the command line. 
+##<a id='overview'></a> Overview
 
-The PCF (Pivotal Cloud Foundry) Tile for EnterpriseDB Postgres installs the EnterpriseDB Postgres Service Broker as an application and registers it as a Service Broker on Cloud Foundry and exposes its service plans on the Marketplace.  This makes the installation and subsequent use of EnterpriseDB Postgres on your Cloud Foundry applications simple and easy. 
+The EDB Postgres Service Broker provides a single service plan which provisions a PostgreSQL database on a shared PostgreSQL server.
 
-The EnterpriseDB Postgres service broker currently provides a single service plan which provisions a PostgreSQL database on a shared PostgreSQL server.
+When a developer creates an instance of the service plan, the EDB Postgres Service Broker creates a PostgreSQL database on the PostgreSQL server. Each service instance connects to a single database that is secure from other databases on the server.
 
-##<a id="snapshot"></a>Product Snapshot
-Current EnterpriseDB Postgres Tile for Pivotal Cloud Foundry Details
-	**Version**: 1.0.12
-	**Release Date**: 
-	**Software components versions**: EnterpriseDB Postgres product version
-	**Compatible Ops Manager Version(s)**: 1.5.x, 1.6.x
-	**Compatible Elastic Runtime Version(s)**: 1.4.x, 1.5.x, 1.6.x
+When a developer binds a service instance to an application, the binding call provisions credentials and delivers them to the application. When a developer unbinds a service instance, the unbinding call disables the database user role if there are no other bindings.
 
-Key Features
+When a developer deletes a service instance, the EDB Postgres Service Broker deprovisions the PostgreSQL database and deletes all resources.
 
-A service provisioning call will create a PostgreSQL database. Each service instance connects to a single database that is secure from other databases on the server.
-A binding call will return a database uri that can be used to connect to the database.
-Unbinding calls will disable the database user role when there are no other bindings.
-Deprovisioning calls will delete all resources created.
+##<a id='snapshot'></a> Product Snapshot
 
-Customers interested in using EnterpriseDB Postgres can obtain a 60 day free trial license from edit link here.
+<dl>
+<dt>EnterpriseDB Postgres Service Broker tile for Pivotal Cloud Foundry Details: </dt>
+<dd><strong>Version</strong>: 1.0.12 </dd>
+<dd><strong>Release Date</strong>: </dd>
+<dd><strong>Software components versions</strong>: EnterpriseDB Postgres product version</dd>
+<dd><strong>Compatible Ops Manager Version(s)</strong>: 1.5.x, 1.6.x</dd>
+<dd><strong>Compatible Elastic Runtime Version(s)</strong>: 1.4.x, 1.5.x, 1.6.x</dd>
+</dl>
 
+##<a id='requirements'></a> Requirements
+
+To install the EDB Postgres Service Broker tile on your PCF deployment, you must have a PostgreSQL 9.x server running. The EDB Postgres Service Broker uses a PostgreSQL table for its metadata.
+
+##<a id='feedback'></a> Feedback
+
+Please provide any bugs, feature requests, or questions to the [Pivotal Cloud Foundry Feedback](mailto:pivotal-cf-feedback@pivotal.io) list.
+
+##<a id='license'></a> License
+
+Customers interested in using EnterpriseDB Postgres can obtain a 60 day free trial license.
 
 
