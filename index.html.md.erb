@@ -1,0 +1,34 @@
+---
+title: EnterpriseDB Postgres Service Broker for Pivotal Cloud Foundry&reg;
+owner: Partner Services
+---
+
+This documentation describes the EnterpriseDB (EDB) Postgres Service Broker for Pivotal Cloud Foundry&reg; (PCF).
+
+EnterpriseDB Postgres Service Broker
+
+A Service Broker allows Cloud Foundry applications to bind to services and consume the services easily from App Manager UI or command line. The EnterpriseDB Postgres Service Broker will enable you to use one or more EnterpriseDB Postgres accounts and is deployed as a Java Application on Cloud Foundry. The Broker exposes the EnterpriseDB Postgres service on the Cloud Foundry Marketplace and allows users to directly create a service instance and bind it to their applications either from the Pivotal Apps Manager Console or from the command line. 
+
+The PCF (Pivotal Cloud Foundry) Tile for EnterpriseDB Postgres installs the EnterpriseDB Postgres Service Broker as an application and registers it as a Service Broker on Cloud Foundry and exposes its service plans on the Marketplace.  This makes the installation and subsequent use of EnterpriseDB Postgres on your Cloud Foundry applications simple and easy. 
+
+The EnterpriseDB Postgres service broker currently provides a single service plan which provisions a PostgreSQL database on a shared PostgreSQL server.
+
+##<a id="snapshot"></a>Product Snapshot
+Current EnterpriseDB Postgres Tile for Pivotal Cloud Foundry Details
+	**Version**: 1.0.12
+	**Release Date**: 
+	**Software components versions**: EnterpriseDB Postgres product version
+	**Compatible Ops Manager Version(s)**: 1.5.x, 1.6.x
+	**Compatible Elastic Runtime Version(s)**: 1.4.x, 1.5.x, 1.6.x
+
+Key Features
+
+A service provisioning call will create a PostgreSQL database. Each service instance connects to a single database that is secure from other databases on the server.
+A binding call will return a database uri that can be used to connect to the database.
+Unbinding calls will disable the database user role when there are no other bindings.
+Deprovisioning calls will delete all resources created.
+
+Customers interested in using EnterpriseDB Postgres can obtain a 60 day free trial license from edit link here.
+
+
+
