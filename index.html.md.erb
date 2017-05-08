@@ -11,11 +11,11 @@ The EDB Postgres Service Broker tile registers a service broker on PCF and expos
 
 The EDB Postgres Service Broker provides a single service plan which provisions a PostgreSQL database on a shared PostgreSQL server.
 
-When a developer creates an instance of the service plan, the EDB Postgres Service Broker creates a PostgreSQL database on the PostgreSQL server. Each service instance connects to a single database that is secure from other databases on the server.
+When a developer creates an instance of the service plan, the EDB Postgres Service Broker creates a new PostgreSQL database on the PostgreSQL server.
 
-When a developer binds a service instance to an application, the binding call provisions credentials and delivers them to the application. When a developer unbinds a service instance, the unbinding call disables the database user role if there are no other bindings.
+When a developer binds an application to a service instance, the binding call provisions credentials and delivers them to the application. When a developer unbinds a service instance, the unbinding call disables the database role created by the binding.
 
-When a developer deletes a service instance, the EDB Postgres Service Broker deprovisions the PostgreSQL database and deletes all resources.
+When a developer deprovisions a service instance, the EDB Postgres Service Broker deletes the corresponding database and role bindings.
 
 ##<a id='snapshot'></a> Product Snapshot
 
@@ -26,23 +26,23 @@ The following table provides version and version-support information about Enter
     <th>Details</th>
     <tr>
         <td>Version</td>
-        <td>v1.0.14</td>
+        <td>v1.0.15</td>
     </tr>
     <tr>
         <td>Release date</td>
-        <td>July 20, 2016</td>
+        <td>May 5, 2016</td>
     </tr>
     <tr>
         <td>Software component version</td>
-        <td>EnterpriseDB Postgres Service Broker v1.0.14</td>
+        <td>EnterpriseDB Postgres Service Broker v1.0.15</td>
     </tr>
     <tr>
         <td>Compatible Ops Manager version(s)</td>
-        <td>v1.5.x, v1.6.x, v1.7.x</td>
+        <td>v1.8.x, v1.9.x, v1.10.x</td>
     </tr>
     <tr>
         <td>Compatible Elastic Runtime version(s)</td>
-        <td>v1.4.x, v1.5.x, v1.6.x, v1.7.x</td>
+        <td>v1.8.x, v1.9.x, v1.10.x</td>
     </tr>
     <tr>
         <td>IaaS support</td>
@@ -54,7 +54,7 @@ The following table provides version and version-support information about Enter
 
 To install the EDB Postgres Service Broker tile on your PCF deployment, you must have a PostgreSQL 9.x server running. You can use a generic PostgreSQL 9.x server or the EDB Postgres Advanced Server. Customers interested in using the EDB Postgres Advanced Server can obtain a 60-day free trial license from the EDB [website](http://www.enterprisedb.com/downloads/postgres-postgresql-downloads).
 
-The EDB Postgres Service Broker uses a PostgreSQL table for its metadata.
+The EDB Postgres Service Broker uses two PostgreSQL tables (service & binding) in the master database for its metadata.
 
 ##<a id='feedback'></a> Feedback
 
